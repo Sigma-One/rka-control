@@ -1,0 +1,51 @@
+   |  A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P
+----------------------------------------------------
+00 | 00 00 40 bf 00 6e 7b bb d0 24 d3 62 ed ec a2 0d
+01 | 1a b6 ff 09 a4 6e 50 11 99 f1 8d f9 e5 84 19 e4
+02 | 3d da 5c e8 37 f7 6f 56 76 46 ed ee 6f 07 e6 14
+03 | 84 5f a8 8b 3d 67 bc b4 9f 5d ee d4 1d b2 2e 10
+04 | 86 00 40 bf 00 6e 7b bb d0 24 d3 62 ed ec a2 0d
+05 | 1a b6 ff 09 a4 6e 50 11 99 f1 8d f9 e5 84 19 e4
+06 | 3d da 5c e8 37 f7 6f 56 76 46 ed ee 6f 07 e6 14
+07 | 84 5f a8 8b 3d 67 bc b4 9f 5d ee d4 1d b2 2e 10
+08 | 86 00 63 91 e3 ff 6f e4 77 fc 7c 57 f5 4a b2 54
+09 | 2f ba 12 6c 3d 06 69 00 06 1f 08 10 18 20 40 04
+10 | 03 00 00 08 ff 07 00 01 01 ff 1d 13 ff 00 ff 59
+11 | ff 00 00 ff fd fd 00 00 ff f4 64 00 00 ff f4 00
+12 | 00 00 ff ff 00 00 00 00 ff 00 00 00 00 ff 00 00
+13 | 00 00 ff 00 00 00 00 ff 00 00 00 00 ff 00 00 00
+14 | 00 ff 00 00 00 00 ff 00 00 00 00 ff 00 00 00 00
+15 | ff 00 00 00 00 ff 00 00 00 00 d3 bc 00 33 6d 86
+16 | 00 6b 32 25 b5 93 d8 f7 cf 34 1b ed 1b e5 5e 7f
+17 | e6 b5 47 e3 34 c7 79 3c 49 bc f1 65 fe 4f e2 6d
+18 | de 30 91 63 7d cf 3b c4 c6 f2 af 2c 6f f5 74 7e
+19 | ff ad 3c 80 6e 72 bc dc 4c 77 f9 e8 89 4b 74 dd
+20 | bb fb 13 30 e2 bb 43 7a 59 34 fd 56 37 58 ce 3b
+21 | ce 24 e8 ff 64 d9 81 7b 16 31 8b 59 16 9c 97 70
+22 | 01 bd f2 c0 4b 3a eb e7 f0 f9 de 03 99 7b 9d ef
+23 | 12 4a be 36 7c fb ee e7 4c f8 af e2 8d d5 01 02
+24 | 40 96 cf de f6 79 fa 64 35 56 0e ee f7 a3 46 5c
+25 | 22 0f 58 8a 37 cf 7f d7 26 97 75 c7 36 4b 31 b9
+26 | d4 36 6b 2d f3 9a fb cd 5f 5f 12 de bc 4e ad 99
+27 | f5 8c 1e d4 8e f3 7d cf 38 87 b7 44 bf 3b c5 cb
+28 | ef 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+J-10         : Brightness
+
+D-12 -> G-12 : Wheel ARGB
+
+I-12 -> L-12 : Ribbon Left 1 ARGB
+N-12 -> A-13 : Ribbon Left 2 ARGB
+C-13 -> F-13 : Ribbon Left 3 ARGB
+H-13 -> K-13 : Ribbon Left 4 ARGB
+
+M-13 -> P-13 : Ribbon Right 1 ARGB
+B-14 -> E-14 : Ribbon Right 2 ARGB
+G-14 -> J-14 : Ribbon Right 3 ARGB
+L-14 -> O-14 : Ribbon Right 4 ARGB
+
+A-15 -> D-15 : Panel Left ARGB
+
+F-15 -> I-15 : Panel Right ARGB
+
+K-15 -> L-15 : Unknown, changes sometimes, possibly with LED setup?

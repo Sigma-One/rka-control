@@ -1,35 +1,29 @@
-# rka-control
-Simple Go program for cross-platform control over the Roccat Kone AIMO mouse.
+# rka-control-python
+Python program for lighting control of the Roccat Kone AIMO mouse on Linux. Based on [Squ1dd13's rka-control](https://github.com/Squ1dd13/rka-control).
 
-## Use
-First, download the latest binary from [the releases page](https://github.com/Squ1dd13/rka-control/releases).
+## Dependencies
+* Python 3
+* libhidapi-libusb.so (Should come with all distributions, this software looks for it under `/lib/`)
 
-*The x86-64 binary provided has been tested on my Linux machine running Ubuntu 20.04. I have not provided builds
-for Windows or macOS.*
-
-You will also need to download the [`lights.yml`](https://raw.githubusercontent.com/Squ1dd13/rka-control/main/lights.yml) 
-file, as this is how you specify the colours.
-
-To test the program, run this command (modified to fit with your file paths):
+## Usage
+Set the desired light colours in hexadecimal RGB or RGBA in a JSON file. An example file, `lights.json`, is provided. Then run main.py with Python 3, giving the json file as the only argument: 
 ```shell
-'/path/to/rka-control-linux-x86-64' '/path/to/lights.yml'
+python main.py lights.json
 ```
-If you get an error like `hidapi: failed to open device`, you probably need to run
-the command as root (e.g. with `sudo`).
+Depending on your distribution, you may need to substitute `python3` in place of `python` in the above command.
 
-If the colours on your mouse change to a mixture of blues and greens,
-the program works. (If not, it doesn't...) 
+## Future
+Currently the software is at a very early stage, and I have several plans for it's future:
+* Simple GUI
+* Simple CLI
+* Better configuration files
+* Better error reporting
+* Fetching current configuration
 
-You can pick your own colours by changing the hex strings in `lights.yml`. They are
-in typical RGBA hex format, but you may omit the alpha value and just use RGB (if you
-do this, the alpha will be set to the maximum by default).
+For more long term goals, I am considering the possibility of expanding the software to handle all configuration of the mouse and not only lights. Depending on what hardware I will have in the future, it may also be expanded to handle other devices, however currently there are no plans for that.
 
-For `left_ribbon` and `right_ribbon`, there are four colours each. These 'ribbons' are
-the lights that run down the sides of the mouse all the way to the back, and each one
-has four configurable lights inside.
-
-There is also a `brightness` value in the file, which controls the brightness for all
-of the lights on the mouse. Its value must be between 0 (off) and 255 (full brightness).
+## Credits
+* Squ1dd13 : Original rka-control Go program, which this is based on
 
 ## Disclaimer
 This software should be regarded as **experimental** and as such, any damage caused to your hardware as an outcome

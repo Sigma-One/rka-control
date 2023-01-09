@@ -1,0 +1,2 @@
+Bytes 16-2E are still a mystery in kone_aimo.py, however they are left as default from Squ1dd13's original program
+Zeroing them occasionally causes the mouse to become unresponsive based on my testing

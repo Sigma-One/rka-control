@@ -1,0 +1,20 @@
+Bytes 10-11 in kone_aimo.py contains a lights toggle bitmask, which appears to be just two 8-bit integers
+This file contains it's bits mapped to each LED on the mouse
+
+          ┌Unknown or None
+          │┌Unknown or None
+          ││┌Unknown or None
+          │││┌Unknown or None
+          ││││ ┌Unknown or None
+          ││││ │┌Panel R
+          ││││ ││┌Panel L
+          ││││ │││┌Ribbon R 4
+0000 0000 0000 0000
+││││ │││└Wheel
+││││ ││└Ribbon L 1
+││││ │└Ribbon L 2
+││││ └Ribbon L 3
+│││└Ribbon L 4
+││└Ribbon R 1
+│└Ribbon R 2
+└Ribbon R 3

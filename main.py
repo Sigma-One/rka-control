@@ -35,6 +35,7 @@ with open(sys.argv[1], "r") as lightFile:
 hid.sendFeatureReport(device, packet)
 # Get a feature report, usually all zeroes, to prevent mouse from being unresponsive
 # No idea what causes that, but this seems to fix it for some reason
+# My guess is that the mouse expects to respond to any received reports
 hid.getFeatureReport(device)
 
 hid.close(device)

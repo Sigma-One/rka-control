@@ -1,0 +1,23 @@
+Bytes 12-14 in kone_aimo.py appear to control the light patterns, e.g. breathing, blinking, etc.
+This file has my resarch into the specifics of those three bytes
+
+00 00 00: Disables all lights
+00 xx 00: User defined solid lights
+
+If byte 13 controls colours, byte 12's effect is overridden
+
+Byte 12 appears to control the basic colour pattern, however is very limited in options:
+00    : User defined colour
+01    : Rainbow cycle
+02-ff : Blue
+
+Byte 13 appears to be more fine-grained pattern control:
+00    : Off
+01    : Solid
+02    : Blink
+03    : Breathing
+04    : Unknown, appears to freeze current pattern to it's present state?
+05    : Unknown colour cycle, affected by user colours
+06-ff : Orange-red colour cycle, could be AIMO-related as this is what I recall the mouse defaulting to on Linux before the firmware supported storing lighting data on-device, and if I recall correctly it defaults to AIMO on Windows.
+
+Byte 14 seems to control the speed of the pattern set by byte 13

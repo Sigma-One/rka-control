@@ -31,21 +31,16 @@
 28 | ef 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 
 J-10         : Brightness
-
 D-12 -> G-12 : Wheel ARGB
-
 I-12 -> L-12 : Ribbon Left 1 ARGB
 N-12 -> A-13 : Ribbon Left 2 ARGB
 C-13 -> F-13 : Ribbon Left 3 ARGB
 H-13 -> K-13 : Ribbon Left 4 ARGB
-
 M-13 -> P-13 : Ribbon Right 1 ARGB
 B-14 -> E-14 : Ribbon Right 2 ARGB
 G-14 -> J-14 : Ribbon Right 3 ARGB
 L-14 -> O-14 : Ribbon Right 4 ARGB
-
 A-15 -> D-15 : Panel Left ARGB
-
 F-15 -> I-15 : Panel Right ARGB
 
 K-15 -> L-15 : Unknown, changes sometimes, possibly with LED setup?

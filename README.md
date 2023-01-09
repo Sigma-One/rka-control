@@ -3,24 +3,24 @@ Python program for lighting control of the Roccat Kone AIMO mouse on Linux. Base
 
 ## Dependencies
 * Python 3
-* libhidapi-libusb.so (Should come with all distributions, this software looks for it under `/lib/`)
+* libhidapi-libusb.so (Should come with all, or at least most, distributions)
 
 ## Usage
-Set the desired light colours in hexadecimal RGB or RGBA in a JSON file. An example file, `lights.json`, is provided. Then run main.py with Python 3, giving the json file as the only argument: 
+Set the desired light colours in hexadecimal RGB or RGBA in a JSON file. Examples can be found under `presets/`. Then run main.py with Python 3, giving the json file as the only argument: 
 ```shell
-python main.py lights.json
+python main.py <filename>.json
 ```
-Depending on your distribution, you may need to substitute `python3` in place of `python` in the above command.
+Depending on your distribution, you may need to substitute `python3` in place of `python` in the above command. It may also have to be run as root, depending on permissions on your system.
 
-## Future
-Currently the software is at a very early stage, and I have several plans for it's future:
-* Simple GUI
-* Simple CLI
-* Better configuration files
+## Future and Planned Features
+The highest priority plan at this time is investigating the rest of the bytes in the HID feature report in `kone_aimo.py`.
+
+Some planned features after that is done include:
+* Better configuration, JSON is a bit clunky at times
 * Better error reporting
-* Fetching current configuration
+* Fetching current configuration from the mouse
 
-For more long term goals, I am considering the possibility of expanding the software to handle all configuration of the mouse and not only lights. Depending on what hardware I will have in the future, it may also be expanded to handle other devices, however currently there are no plans for that.
+For more long term goals, I am considering the possibility of expanding the software to handle all configuration of the mouse and not only lights. Depending on what hardware I will have in the future, it may also be expanded to handle other devices, however currently there are no actively worked on plans for that.
 
 ## Credits
 * Squ1dd13 : Original rka-control Go program, which this is based on

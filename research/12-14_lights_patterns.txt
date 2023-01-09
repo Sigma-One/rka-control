@@ -1,4 +1,4 @@
-Bytes 12-14 in kone_aimo.py appear to control the light patterns, e.g. breathing, blinking, etc.
+Bytes 12-14 in the feature report appear to control the light patterns, e.g. breathing, blinking, etc.
 This file has my resarch into the specifics of those three bytes
 
 00 00 00: Disables all lights

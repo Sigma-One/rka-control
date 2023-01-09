@@ -1,36 +1,38 @@
-import hidapi as hid
-from magic import *
-import kone_aimo
-from colour import Colour 
-import sys
-import json
+import hidapi as hid # HID functions
 
-device = hid.open(
-    ROCCAT_VENDOR_ID,
-    DEVICE_IDS.KONE_AIMO
-)
+from magic          import *             # "Magic values" such as device and vendor IDs
+from colour         import Colour        # Colour object
+from feature_report import FeatureReport # Feature report object
+
+import sys                # Args reading
+import json               # JSON parsing
+
 
 with open(sys.argv[1], "r") as lightFile:
     lights = json.load(lightFile)
 
-    packet = kone_aimo.ledPacket(
-        Colour.fromHex(lights["wheel"]),
-        [
-            Colour.fromHex(lights["left-ribbon"][0]),
-            Colour.fromHex(lights["left-ribbon"][1]),
-            Colour.fromHex(lights["left-ribbon"][2]),
-            Colour.fromHex(lights["left-ribbon"][3]),
-        ],
-        [
-            Colour.fromHex(lights["right-ribbon"][0]),
-            Colour.fromHex(lights["right-ribbon"][1]),
-            Colour.fromHex(lights["right-ribbon"][2]),
-            Colour.fromHex(lights["right-ribbon"][3]),
-        ],
-        Colour.fromHex(lights["left-panel"]),
-        Colour.fromHex(lights["right-panel"]),
-        lights["brightness"]
-    )
+    report = FeatureReport()
+
+    # Set colours
+    # If statement disaster is to allow for omitted values, I miss kotlinx.serialization already
+    report.wheel    = Colour.fromHex(lights["wheel"])                                if "wheel"        in lights else report.wheel
+    report.ribbon_l = list(map(lambda c: Colour.fromHex(c), lights["left-ribbon"] )) if "left-ribbon"  in lights else report.ribbon_l
+    report.ribbon_r = list(map(lambda c: Colour.fromHex(c), lights["right-ribbon"])) if "right-ribbon" in lights else report.ribbon_r
+    report.panel_l  = Colour.fromHex(lights["left-panel"] )                          if "left-panel"   in lights else report.panel_l
+    report.panel_r  = Colour.fromHex(lights["right-panel"])                          if "right-panel"  in lights else report.panel_r
+
+    # Other light data
+    report.brightness = min(lights["brightness"], 255) if "brightness" in lights else report.brightness
+    # TODO: Patterns
+
+# Get bytes from report
+packet = report.getBytes()
+
+# Open device and send report
+device = hid.open(
+    ROCCAT_VENDOR_ID,
+    DEVICE_IDS.KONE_AIMO
+)
 
 hid.sendFeatureReport(device, packet)
 # Get a feature report, usually all zeroes, to prevent mouse from being unresponsive
@@ -38,4 +40,5 @@ hid.sendFeatureReport(device, packet)
 # My guess is that the mouse expects to respond to any received reports
 hid.getFeatureReport(device)
 
+# Close device
 hid.close(device)

@@ -1,0 +1,1 @@
+Bytes 05-0C in the report appear to control the mouse's sensitivity or DPI control in some way, however I have yet to figure out how.

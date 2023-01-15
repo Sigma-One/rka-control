@@ -3,7 +3,7 @@ Python program for lighting control of the Roccat Kone AIMO mouse on Linux. Base
 
 ## Dependencies
 * Python 3
-* libhidapi-libusb.so (Should come with all, or at least most, distributions)
+* [`hid` Python module](https://pypi.org/project/hid/), packaged as `python3-hid` on Void Linux
 
 ## Usage
 Set the desired light colours in hexadecimal RGB or RGBA in a JSON file. Examples can be found under `presets/`. Then run main.py with Python 3, giving the json file as the only argument: 

@@ -1,4 +1,4 @@
-import hidapi as hid # HID functions
+import hid # HID functions
 
 from magic          import *             # "Magic values" such as device and vendor IDs
 from colour         import Colour        # Colour object
@@ -28,17 +28,8 @@ with open(sys.argv[1], "r") as lightFile:
 # Get bytes from report
 packet = report.getBytes()
 
-# Open device and send report
-device = hid.open(
-    ROCCAT_VENDOR_ID,
-    DEVICE_IDS.KONE_AIMO
-)
-
-hid.sendFeatureReport(device, packet)
-# Get a feature report, usually all zeroes, to prevent mouse from being unresponsive
-# No idea what causes that, but this seems to fix it for some reason
-# My guess is that the mouse expects to respond to any received reports
-hid.getFeatureReport(device)
-
-# Close device
-hid.close(device)
+with hid.Device(
+        ROCCAT_VENDOR_ID,
+        DEVICE_IDS.KONE_AIMO
+) as hid_dev:
+    hid_dev.send_feature_report(packet)

@@ -1,0 +1,18 @@
+{
+    "wheel" : "#ffffff",
+    "left-ribbon" : [
+        "#ffff00",
+        "#ffff00",
+        "#ffff00",
+        "#ffff00"
+    ],
+    "right-ribbon" : [
+        "#ffff00",
+        "#ffff00",
+        "#ffff00",
+        "#ffff00"
+    ],
+    "left-panel" : "#7700ff",
+    "right-panel" : "#7700ff",
+    "brightness" : 255
+}

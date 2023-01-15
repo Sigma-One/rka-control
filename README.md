@@ -12,8 +12,10 @@ python main.py <filename>.json
 ```
 Depending on your distribution, you may need to substitute `python3` in place of `python` in the above command. It may also have to be run as root, depending on permissions on your system.
 
+The light config JSON can have values omitted from it, these will be substituted by defaults as set in `feature_report.py`, which is mostly disabled lighting.
+
 ## Future and Planned Features
-The highest priority plan at this time is investigating the rest of the bytes in the HID feature report in `kone_aimo.py`.
+The highest priority plan at this time is investigating the rest of the bytes in the HID feature report in `feature_report.py`.
 
 Some planned features after that is done include:
 * Better configuration, JSON is a bit clunky at times

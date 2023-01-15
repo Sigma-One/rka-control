@@ -1,0 +1,44 @@
+Attempting to get a feature report on index 0 yields various results depending on the supplied size, with most promise being shown with 4096 and 8192. Output from both is consistent, so there is some confidence the mouse is not just sending garbage. With for example 2048 as the size, some parts remain the same but others don't. It may also be of interest that every second query fails with "Value too large for defined data type".
+
+Neither report appears to contain lighting data, as changing the lighting does not affect the result, however using the on-mouse buttons to adjust DPI seems to change a value in the size 8192 report.
+
+Sample outputs from 8192 and 4096 are listed below.
+
+8192 : 
+00 f4 79 1c     ??
+08 fe fe fd     ??
+9d 9c f9 fa     ??
+99 c7 79 df     ??
+cd f8 46 2d     ??
+4f bd 7a 5b     ??
+7c 00 00 2d     ??
+ce 14 01 02     ??
+01 01 00 07     ??
+00 00 00 00     ??
+00 00 00 00     ??
+00 a1 01 00     ??
+03 00 00 ff     ??
+1f f8 3a 00     ??
+10 3f 00 ea     ??
+3f              ??
+2b              Second nibble of this byte changed by DPI buttons, range appears to be from 0x7 to 0xb on my (Sigma-One's) mouse.
+27              This and the previous byte are changed when setting the light configuration.
+00              ??
+
+4096 :
+00 ef 7f 79
+7c fc 56 d0
+2e 7f f1 35
+0b 73 68 85
+f3 23 ca 12
+ae dc 1d 47
+68 23 08 13
+ec 58 70 47
+3c fc 8f 26
+9c 16 77 72
+e5 e0 01 5c
+97 f0 7d f6
+61 2f ff 14
+0b 75 95 fc
+79 e4 13 65
+a5 b9 a3 2b

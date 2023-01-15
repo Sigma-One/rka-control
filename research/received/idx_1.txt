@@ -1,0 +1,5 @@
+Reports on index 1 and up are somewhat more interesting compared to index 0, as they contain the entire sent report, and succeed consistently rather than every second one failing.
+
+These reports start with unknown data, then contain the sent report, then a massive chunk consisting almost solely of 0xff, and then more unknown data. After a certain point they seem to repeat the sent report if the size is increased enough.
+
+This report, however, does not seem to contain any information on sensitivity for example, based on my brief research. Thus, the reason for sensitivity getting reset when changing lighting remains unknown for now.

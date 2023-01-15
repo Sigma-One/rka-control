@@ -20,10 +20,10 @@ class FeatureReport(object):
 
     def getBytes(self):
         return bytes.fromhex( 
-              "06"                                              # 01-01 - Unknown, Must be 0x06 for things to work
-            + "00"                                              # 02-02 - ??
+              "06"                                              # 01-01 - Unknown, Must be 0x06 or nothing happens
+            + "00"                                              # 02-02 - Unknown, Possibly padding?
             + "00"                                              # 03-03 - Unknown, Must be 0x00 or nothing happens
-            + "00"                                              # 04-04 - ??
+            + "00"                                              # 04-04 - Unknown, Possibly padding?
             + "1f 08 10 18 20 40 04 03"                         # 05-0C - Something to do with sensitivity
             + "00 00 00"                                        # 0D-0F - ??
             + hex(self.__lights_bitmask)[2:].rjust(4, "0")      # 10-11 - Lights toggle bitmask, see lights_bitmask.txt in research directory, 0xff07-0xffff enables all
@@ -31,13 +31,13 @@ class FeatureReport(object):
             + hex(self.pattern_adv.value)[2:].rjust(2, "0")     # 13-13 │
             + hex(self.pattern_speed)[2:].rjust(2, "0")         # 14-14 ┘
             + hex(self.brightness)[2:].rjust(2, "0")            # 15-15 - General brightness
-            + "1d 13 ff 00"                                     # 16-19 ┬ Unknown, See 16-2E.txt in research directory
-            + "ff 59 ff 00"                                     # 1A-1D │
-            + "00 ff fd fd"                                     # 1E-21 │
-            + "00 00 ff f4"                                     # 22-25 │
-            + "64 00 00 ff"                                     # 26-29 │
-            + "f4 00 00 00"                                     # 2A-2D │
-            + "ff"                                              # 2E-2E ┘
+            + "00 00 00 00"                                     # 16-19 ┬ Unknown, See 16-2E.txt in research directory
+            + "00 00 00 00"                                     # 1A-1D │
+            + "00 00 00 00"                                     # 1E-21 │
+            + "00 00 00 00"                                     # 22-25 │
+            + "00 00 00 00"                                     # 26-29 │
+            + "00 00 00 00"                                     # 2A-2D │
+            + "00"                                              # 2E-2E ┘
             + self.wheel.asSpacedARGB()                         # 2F-32 - Wheel LED
             + "00"                                              # 33-33 - Padding
             + self.ribbon_l[0].asSpacedARGB()                   # 34-37 - Left Ribbon 1

@@ -1,2 +1,1 @@
-Bytes 16-2E are still a mystery in kone_aimo.py, however they are left as default from Squ1dd13's original program
-Zeroing them occasionally causes the mouse to become unresponsive based on my testing
+Bytes 16-2E are still a mystery. Their position could indicate that they have something to do with lighting, as they're between light pattern data and actual lighting data, however this is just speculation. Previous experiences with instability from zeroing them seems to be false, and instead was likely the result of the previous HID library.

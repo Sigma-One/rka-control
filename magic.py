@@ -1,4 +1,0 @@
-ROCCAT_VENDOR_ID = 0x1e7d
-
-class DEVICE_IDS:
-    KONE_AIMO = 0x2e27

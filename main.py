@@ -1,6 +1,6 @@
 import hid # HID functions
 
-from magic          import *             # "Magic values" such as device and vendor IDs
+from devices        import DEVICES       # Device vendor and product IDs
 from colour         import Colour        # Colour object
 from feature_report import FeatureReport # Feature report object
 
@@ -29,7 +29,7 @@ with open(sys.argv[1], "r") as lightFile:
 packet = report.getBytes()
 
 with hid.Device(
-        ROCCAT_VENDOR_ID,
-        DEVICE_IDS.KONE_AIMO
+        DEVICES.ROCCAT.KONE_AIMO.vid,
+        DEVICES.ROCCAT.KONE_AIMO.pid
 ) as hid_dev:
     hid_dev.send_feature_report(packet)

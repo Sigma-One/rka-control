@@ -24,7 +24,10 @@ class FeatureReport(object):
             + "00"                                              # 02-02 - Unknown, Possibly padding?
             + "00"                                              # 03-03 - Unknown, Must be 0x00 or nothing happens
             + "00"                                              # 04-04 - Unknown, Possibly padding?
-            + "1f 08 10 18 20 40 04 03"                         # 05-0C - Something to do with sensitivity
+            + "1f"                                              # 05-05 - Some kind of sensitivity multiplier, maybe a maximum?
+            + "00 33 66 99 cc"                                  # 06-0A - Sensitivity/DPI steps from low to high
+            + "10"                                              # 0B-0B - Something to do with sensitivity too, setting to not 0x00 breaks adjustment 
+            + "00"                                              # 0B-0C - ??
             + "00 00 00"                                        # 0D-0F - ??
             + hex(self.__lights_bitmask)[2:].rjust(4, "0")      # 10-11 - Lights toggle bitmask, see lights_bitmask.txt in research directory, 0xff07-0xffff enables all
             + hex(self.pattern_basic.value)[2:].rjust(2, "0")   # 12-12 ┬ Light pattern, see lights_patterns.txt in research directory, 0x000100 is user defined solid

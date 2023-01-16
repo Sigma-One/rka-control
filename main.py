@@ -28,6 +28,8 @@ with open(sys.argv[1], "r") as lightFile:
 # Get bytes from report
 packet = report.getBytes()
 
+# TODO: Get previous report and merge with new one to maintain everything unchanged
+
 with hid.Device(
         DEVICES.ROCCAT.KONE_AIMO.vid,
         DEVICES.ROCCAT.KONE_AIMO.pid

@@ -1,4 +1,4 @@
-Bytes 10-11 in the feature report contain a lights toggle bitmask, which appears to be just two 8-bit integers
+Bytes 0F-10 in the feature report contain a lights toggle bitmask, which appears to be just two 8-bit integers
 This file contains it's bits mapped to each LED on the mouse
 
           ┌Unknown or None

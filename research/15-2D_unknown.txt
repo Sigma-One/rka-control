@@ -1,0 +1,1 @@
+Bytes 15-2D are still a mystery. Their position could indicate that they have something to do with lighting, as they're between light pattern data and actual lighting data, however this is just speculation. Previous experiences with instability from zeroing them seems to be false, and instead was likely the result of the previous HID library.

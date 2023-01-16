@@ -1,0 +1,8 @@
+Bytes 04-0A appear to have various effects on sensitivity or DPI.
+
+Byte 04 is some sort of multiplier or scaling factor, as setting it very low sets adjustment range very low, while setting it to 0xff makes the highest setting extremely fast.
+It may be a maximum sensitivity value of some kind, however further research is needed. It's effect also depends on the set sensitivity or DPI steps.
+
+Bytes 05 to 09 hold the steps cycled through with the adjustments buttons at least on my mouse configuration, ranging from lowest to highest.
+
+Byte 0A is currently unknown. It has some effect on adjustment, similar to Byte 04, however I have no been able to figure out what this one does beyond that.

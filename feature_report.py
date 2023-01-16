@@ -7,6 +7,8 @@ class FeatureReport(object):
     def __init__(self):
         self.profile = 0x00    # 0x02  Profile index
 
+        self.sensitivity_steps = [0x11, 0x33, 0x66, 0x99, 0xcc] # 0x05-0x09 Sensitivity steps, low to high
+
         self.__lights_bitmask = 0xffff                    # 0x0F-0x10   Light control bitmask, not used for now so defaults to all on
         self.pattern_basic    = pattern.Basic.USER        # 0x11        Basic light pattern
         self.pattern_adv      = pattern.Advanced.SOLID    # 0x12        Advanced light pattern
@@ -26,13 +28,16 @@ class FeatureReport(object):
             + "00"                                              # 0x01-0x01 - Unknown, Possibly padding?
             + hex(self.profile)[2:].rjust(2, "0")               # 0x02-0x02 - Profile selection
             + "00"                                              # 0x03-0x03 - Unknown, Possibly padding?
-            + "1f"                                              # 0x04-0x04 - Some kind of sensitivity multiplier, maybe a maximum?
-            + "00 33 66 99 cc"                                  # 0x05-0x09 - Sensitivity/DPI steps from low to high
+            + "1f"                                              # 0x04-0x04 - Some kind of sensitivity multiplier, maybe a maximum? I have no idea
+            + ' '.join(map(                                     # 0x05..    ┬ Sensitivity/DPI steps from low to high
+                lambda t: hex(t)[2:].rjust(2, "0"),             #           │
+                self.sensitivity_steps                          #           │
+              ))                                                #    ..0x09 ┘
             + "00"                                              # 0x0A-0x0A - Something to do with sensitivity too, setting to not 0x00 breaks adjustment in unknown ways
             + "00"                                              # 0x0A-0x0B - ??
             + "00 00 00"                                        # 0x0C-0x0E - ??
             + hex(self.__lights_bitmask)[2:].rjust(4, "0")      # 0x0F-0x10 - Lights toggle bitmask, see 0F-10_lights_bitmask.txt in research directory, 0xff07-0xffff enables all
-            + hex(self.pattern_basic.value)[2:].rjust(2, "0")   # 0x11-0x11 ┬ Light pattern, see lights_patterns.txt in research directory, 0x000100 is user defined solid
+            + hex(self.pattern_basic.value)[2:].rjust(2, "0")   # 0x11-0x11 ┬ Light pattern, see 11-13_lights_patterns.txt in research directory, 0x000100 is user defined solid
             + hex(self.pattern_adv.value)[2:].rjust(2, "0")     # 0x12-0x12 │
             + hex(self.pattern_speed)[2:].rjust(2, "0")         # 0x13-0x13 ┘
             + hex(self.brightness)[2:].rjust(2, "0")            # 0x14-0x14 - General brightness

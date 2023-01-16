@@ -8,7 +8,7 @@ Python program for lighting control of the Roccat Kone AIMO mouse on Linux. Base
 ## Usage
 Set the desired light colours in hexadecimal RGB or RGBA in a JSON file. Examples can be found under `presets/`. Then run main.py with Python 3, giving the json file as the only argument: 
 ```shell
-python main.py <filename>.json
+python main.py -c <filename>.json
 ```
 Depending on your distribution, you may need to substitute `python3` in place of `python` in the above command. It may also have to be run as root, depending on permissions on your system.
 
